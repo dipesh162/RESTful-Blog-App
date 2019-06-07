@@ -1,0 +1,53 @@
+<% include partials/header %>
+
+<div class="ui main text container segment">
+       <div class="ui huge header"> New Blog </div>
+
+       <form class="ui form" action="/blogs" method="POST" onsubmit="return validation()"> 
+           <div class="field">
+                 <label> Title </label>
+                     <input type="text" name="blog[title]" placeholder="Title" id="title">
+            </div>
+
+           <div class="field">
+                 <label> Image </label>
+                     <input type="text" name="blog[image]" placeholder="Image" id="image">
+            </div>
+
+           <div class="field">
+                 <label> Blog Content </label>
+                     <textarea name="blog[body]" id="content"></textarea>
+            </div>
+           
+           <input class="big ui violet inverted button" type="submit">
+       </form>
+</div>
+
+
+<script type="text/javascript">
+  
+  validation = () => {
+    var title = document.getElementById('title'),
+        image = document.getElementById('image'),
+        content  = document.getElementById('content'); 
+
+        if(title == ""){
+          alert("Please provide title to your blog");
+          return false;
+        }
+
+        if(image == ""){
+          alert("Please upload an image for your blog");
+          return false;
+        }
+
+        if(body == ""){
+          alert("Please give some description about your blog");
+          return false;
+        }
+  }
+
+  
+</script>
+
+<% include partials/footer %>
